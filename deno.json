@@ -1,0 +1,62 @@
+{
+	"tasks": {
+		"check": "deno check **/*.ts && deno check **/*.tsx && deno fmt --check && deno lint",
+		"dev": "deno run -A --watch=static/,routes/ --env dev.ts",
+		"build": "deno run -A dev.ts build",
+		"start": "deno run -A --env main.ts",
+		"update": "deno run -A -r jsr:@fresh/update ."
+	},
+	"lint": {
+		"rules": {
+			"tags": [
+				"fresh",
+				"recommended"
+			]
+		}
+	},
+	"fmt": {
+		"useTabs": true,
+		"indentWidth": 4
+	},
+	"exclude": [
+		"**/_fresh/*"
+	],
+	"imports": {
+		"@discordjs/builders": "npm:@discordjs/builders@^1.11.1",
+		"@discordjs/formatters": "npm:@discordjs/formatters@^0.6.1",
+		"@gfx/canvas-wasm": "jsr:@gfx/canvas-wasm@^0.4.2",
+		"~/": "./",
+		"@discordjs/core": "npm:@discordjs/core@^2.1.0/http-only",
+		"@discordjs/rest": "npm:@discordjs/rest@^2.5.0",
+		"@dudasaus/env-or-throw": "jsr:@dudasaus/env-or-throw@^1.0.1",
+		"@gz/jwt": "jsr:@gz/jwt@^0.1.0",
+		"@std/encoding": "jsr:@std/encoding@^1.0.9",
+		"@std/fs": "jsr:@std/fs@^1.0.16",
+		"@std/http": "jsr:@std/http@^1.0.14",
+		"@std/path": "jsr:@std/path@^1.0.8",
+		"fresh": "jsr:@fresh/core@^2.0.0-alpha.29",
+		"@fresh/plugin-tailwind": "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.7",
+		"preact": "npm:preact@^10.25.4",
+		"@preact/signals": "npm:@preact/signals@^2.0.1",
+		"tailwindcss": "npm:tailwindcss@^3.4.3",
+		"tweetnacl": "npm:tweetnacl@^1.0.3"
+	},
+	"compilerOptions": {
+		"lib": [
+			"dom",
+			"dom.asynciterable",
+			"dom.iterable",
+			"deno.ns"
+		],
+		"jsx": "precompile",
+		"jsxImportSource": "preact",
+		"jsxPrecompileSkipElements": [
+			"a",
+			"img",
+			"source",
+			"body",
+			"html",
+			"head"
+		]
+	}
+}
